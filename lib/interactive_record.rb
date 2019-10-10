@@ -1,4 +1,4 @@
-require_relative "../config/environment.rb"
+require_relative '../config/environment.rb'
 require 'active_support/inflector'
 
 class InteractiveRecord
@@ -15,7 +15,7 @@ class InteractiveRecord
     table_info = DB[:conn].execute(sql)
     column_names = []
     table_info.each do |row|
-      column_names << row["name"]
+      column_names << row['name']
     end
     column_names.compact
   end
@@ -41,11 +41,11 @@ class InteractiveRecord
     self.class.column_names.each do |col_name|
       values << "'#{send(col_name)}'" unless send(col_name).nil?
     end
-    values.join(", ")
+    values.join(', ')
   end
 
   def col_names_for_insert
-    self.class.column_names.delete_if {|col| col == "id"}.join(", ")
+    self.class.column_names.delete_if {|col| col == 'id'}.join(', ')
   end
 
 def self.find_by_name(name)
