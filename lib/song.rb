@@ -7,3 +7,5 @@ class Song < InteractiveRecord
   end
 
 end
+
+# comment
