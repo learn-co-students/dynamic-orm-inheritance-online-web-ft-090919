@@ -94,4 +94,6 @@ pattern of inheritance will become familiar. In fact, we'll use an ORM tool
 called Active Record that handles *all* of the ORM interactions for us, and
 we'll simply inherit our Ruby classes from Active Record's classes.
 
+Note on submitting this lab and moving on: As there was no changes made to the code in this lab, when you use `learn submit` you may get the error "Your code looks the same as the lesson's. Please make changes and then try submitting again."  To get past this simply add a new line to one of the `.rb` files, save, then run `learn submit`.
+
 <p class='util--hide'>View <a href='https://learn.co/lessons/dynamic-orm-inheritance'>Dynamic ORMs with Inheritance</a> on Learn.co and start learning to code for free.</p>
