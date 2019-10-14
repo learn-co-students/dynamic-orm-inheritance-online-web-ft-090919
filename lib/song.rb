@@ -5,5 +5,5 @@ class Song < InteractiveRecord
   self.column_names.each do |col_name|
     attr_accessor col_name.to_sym
   end
-
+#add an attr_accessor to colum_name (reader and a writer)
 end
