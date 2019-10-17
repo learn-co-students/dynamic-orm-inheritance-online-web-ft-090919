@@ -14,16 +14,12 @@ class InteractiveRecord
 
     table_info = DB[:conn].execute(sql)
     column_names = []
-    table_info.each do |row|
-      column_names << row["name"]
-    end
+    table_info.each { |row| column_names << row["name"]}
     column_names.compact
   end
 
   def initialize(options={})
-    options.each do |property, value|
-      self.send("#{property}=", value)
-    end
+    options.each { |property, value| self.send("#{property}=", value)}
   end
 
   def save
@@ -38,9 +34,7 @@ class InteractiveRecord
 
   def values_for_insert
     values = []
-    self.class.column_names.each do |col_name|
-      values << "'#{send(col_name)}'" unless send(col_name).nil?
-    end
+    self.class.column_names.each { |col_name| values << "'#{send(col_name)}'" unless send(col_name).nil?}
     values.join(", ")
   end
 
@@ -48,9 +42,9 @@ class InteractiveRecord
     self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
 
-def self.find_by_name(name)
-  sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
-  DB[:conn].execute(sql, name)
-end
+  def self.find_by_name(name)
+    sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
+    DB[:conn].execute(sql, name)
+  end
 
 end
